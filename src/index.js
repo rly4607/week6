@@ -26,8 +26,8 @@ var StartArray = ["face_down","face_down","face_down","face_down","face_down"]
 
 var App = React.createClass({
   dealClicked: function() {
-    var newDeck = getDeck().shuffle()
-    window.newDeck = newDeck.pop()
+    var newDeck = getDeck().shuffle().splice(0,5)
+    console.log(newDeck)
     this.setState({
       cards: newDeck
     })
