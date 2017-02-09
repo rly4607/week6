@@ -27,23 +27,13 @@ var StartArray = ["face_down","face_down","face_down","face_down","face_down"]
 var App = React.createClass({
   dealClicked: function() {
     var newDeck = getDeck().shuffle()
-    var card_one = newDeck[0]
-    var card_two = newDeck[1]
     this.setState({
-      card0: card_one,
-      card1: card_two,
-      card2: newDeck,
-      card3: newDeck,
-      card4: newDeck
+      cards: newDeck
     })
   },
   getInitialState: function() {
     return {
-      card0: StartArray,
-      card1: StartArray,
-      card2: StartArray,
-      card3: StartArray,
-      card4: StartArray
+      cards: StartArray,
     }
   },
   render: function() {
@@ -51,11 +41,11 @@ var App = React.createClass({
       <div>
         <h1>Welcome to the KIEI-924 Casino!</h1>
         <div className="row">
-          <Card deck={this.state.card0}/>
-          <Card deck={this.state.card1}/>
-          <Card deck={this.state.card2}/>
-          <Card deck={this.state.card3}/>
-          <Card deck={this.state.card4}/>
+          <Card deck={this.state.cards} cardNum="0"/>
+          <Card deck={this.state.cards} cardNum="1"/>
+          <Card deck={this.state.cards} cardNum="2"/>
+          <Card deck={this.state.cards} cardNum="3"/>
+          <Card deck={this.state.cards} cardNum="4"/>
 
           <div className="col-sm-2">
             <h1><a onClick={this.dealClicked} href="#" className="btn btn-success">Deal</a></h1>
