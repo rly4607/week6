@@ -33,8 +33,15 @@ var App = React.createClass({
     })
   },
   dealReset: function() {
+    console.clear()
     this.setState({
       cards: StartArray
+    })
+  },
+  dealCheat: function() {
+    var CheatCode = getDeck().splice(32,20).shuffle()
+    this.setState({
+      cards: CheatCode
     })
   },
   getInitialState: function() {
@@ -56,6 +63,7 @@ var App = React.createClass({
           <div className="col-sm-2">
             <h1><a onClick={this.dealClicked} href="#" className="btn btn-success">Deal</a></h1>
             <p><a onClick={this.dealReset} href="#" className="btn btn-danger">Reset</a></p>
+            <p><a onClick={this.dealCheat} href="#" className="btn btn-primary">Cheat Code</a></p>
           </div>
         </div>
       </div>
